@@ -3,7 +3,7 @@ import { FC, useCallback, useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import styled from "styled-components";
 
-import { getDragHander, IconButton, iconProps, ToolTip } from "@/app-ui/src";
+import { getDragHandler, IconButton, iconProps, ToolTip } from "@/app-ui/src";
 import { Key, KeyboardInput } from "@/app-ui/src/KeyboardInput";
 import { Card } from "@/components/Card";
 import { Gizmo } from "@/components/preview_panel/Gizmo";
@@ -108,7 +108,7 @@ export const Preview: FC = () => {
 
   const handleMouseDown = useCallback(
     (e: any) =>
-      getDragHander<{ left: number; top: number }, null>(
+      getDragHandler<{ left: number; top: number }, null>(
         (ctx) => {
           if (dragging && ctx.pass) {
             setLeft(ctx.diffX + ctx.pass.left);

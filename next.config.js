@@ -7,9 +7,9 @@ const nextConfig = {
   compiler: {
     styledComponents: true,
   },
-  experimental: {
-    appDir: false,
-  },
+  // experimental: {
+  //   appDir: false,
+  // },
   pageExtensions: ["page.tsx"],
   webpack(config) {
     config.resolve.alias["@"] = path.join(__dirname, "src");

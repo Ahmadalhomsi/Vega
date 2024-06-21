@@ -3,7 +3,7 @@ import { FC, useEffect, useMemo, useState } from "react";
 import { useDispatch } from "react-redux";
 
 import {
-  getDragHander,
+  getDragHandler,
   IconButton,
   iconProps,
   ScaleScrollBar,
@@ -51,7 +51,7 @@ export const KeyFramePanel: FC = () => {
   const [start, setStart] = useState(0);
   const [end, setEnd] = useState(1);
 
-  const handleMouseDownTimeView = getDragHander<number, void>(
+  const handleMouseDownTimeView = getDragHandler<number, void>(
     ({ diffX, pass }) => {
       if (!pass || !strip) return;
       const newCurrentTime = pass + diffX / pxPerSec;
@@ -91,16 +91,16 @@ export const KeyFramePanel: FC = () => {
   const allKeyframes = useMemo<KeyFrame[]>(
     () =>
       (
-        strip?.effects.flatMap((effect) => {
+        strip?.effects?.flatMap((effect) => {
           if ("keyframes" in effect) {
             return effect.keyframes;
           }
           return [];
-        }) as KeyFrame[]
-      ).sort((a, b) => a.property.localeCompare(b.property)) ??
-      ([] as KeyFrame[]),
+        }) ?? []
+      ).sort((a, b) => a.property.localeCompare(b.property)),
     [strip?.effects]
   );
+
 
   const uniqueProperties = useMemo(
     () => new Set(allKeyframes.map((keyframe) => keyframe.property)),
@@ -148,7 +148,7 @@ export const KeyFramePanel: FC = () => {
     return <Card />;
   }
   const handleMouseDownKeyFrame = (keyframe: KeyFrame) =>
-    getDragHander<
+    getDragHandler<
       {
         firstKeyframes: KeyFrame[];
         updatedKeyframeIds: string[];

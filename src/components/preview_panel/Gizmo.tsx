@@ -2,7 +2,7 @@ import { FC } from "react";
 import { useDispatch } from "react-redux";
 import styled from "styled-components";
 
-import { getDragHander, SelectRectProps } from "@/app-ui/src";
+import { getDragHandler, SelectRectProps } from "@/app-ui/src";
 import {
   ImageEffect,
   isImageEffect,
@@ -85,7 +85,7 @@ export const Gizmo: FC<{
     );
   };
 
-  const handleMouseDown = getDragHander<
+  const handleMouseDown = getDragHandler<
     {
       offsetX: number;
       offsetY: number;

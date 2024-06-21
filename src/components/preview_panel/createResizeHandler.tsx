@@ -1,4 +1,4 @@
-import { getDragHander } from "@/app-ui/src";
+import { getDragHandler } from "@/app-ui/src";
 import { Key, KeyboardInput } from "@/app-ui/src/KeyboardInput";
 import {
   Effect,
@@ -27,7 +27,7 @@ export function createResizeHandler(
     }
   ) => {
     e.stopPropagation();
-    const handler = getDragHander((ctx) => {
+    const handler = getDragHandler((ctx) => {
       if (isImageEffect(effect)) {
         if (!effect.width || !effect.height) return;
         let x = effect.x;

@@ -11,7 +11,7 @@ import { uuid } from "short-uuid";
 
 import {
   createDragPointerHandler,
-  getDragHander,
+  getDragHandler,
   IconButton,
   iconProps,
   MemoScaleScrollBar,
@@ -239,7 +239,7 @@ export const Timeline = () => {
     keepStart: boolean,
     keepEnd: boolean
   ) =>
-    getDragHander<
+    getDragHandler<
       {
         updatedStripIds: string[];
         firstStrips: Strip[];
